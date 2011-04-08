@@ -7,19 +7,19 @@ Tested up to: 3.11
 Stable tag: 1.0
 
 You can add code with syntax highlighter easily when you are editing an article.
-·½±ãµÄ´úÂë¸ßÁÁ²å¼ş¡£
+æ–¹ä¾¿çš„ä»£ç é«˜äº®æ’ä»¶ã€‚
 
 == Description ==
 
 This plugin not only provides you syntax-highlighter , but also add a textarea and a button in the post page .
 you just have to select the language , add code to the textarea and click the 'OK' button , and you will get 
 your code highlighted in your atricle.
-Õâ¸ö²å¼ş²»½ö½öÌá¹©ÁË´úÂë¸ßÁÁ£¬»¹ÔÚ±à¼­Ò³ÃæÔö¼ÓÁËÒ»¸ö´úÂë¿òºÍÒ»¸ö°´Å¥£¬ÄãÖ»ÒªÑ¡ÔñºÃÄãµÄ´úÂëÓïÑÔ£¬°Ñ´úÂëÌùÈë´úÂë¿ò£¬
-ÔÙµã»÷Ò»ÏÂOK°´Å¥£¬ÄãµÄ´ø¸ßÁÁµÄ´úÂë¾Í»á±»²åÈëµ½ÎÄÕÂÀïÈ¥¡£
+è¿™ä¸ªæ’ä»¶ä¸ä»…ä»…æä¾›äº†ä»£ç é«˜äº®ï¼Œè¿˜åœ¨ç¼–è¾‘é¡µé¢å¢åŠ äº†ä¸€ä¸ªä»£ç æ¡†å’Œä¸€ä¸ªæŒ‰é’®ï¼Œä½ åªè¦é€‰æ‹©å¥½ä½ çš„ä»£ç è¯­è¨€ï¼ŒæŠŠä»£ç è´´å…¥ä»£ç æ¡†ï¼Œ
+å†ç‚¹å‡»ä¸€ä¸‹OKæŒ‰é’®ï¼Œä½ çš„å¸¦é«˜äº®çš„ä»£ç å°±ä¼šè¢«æ’å…¥åˆ°æ–‡ç« é‡Œå»ã€‚
 
 
 Supported Languge:
-Ö§³ÖµÄÓïÑÔ£º
+æ”¯æŒçš„è¯­è¨€ï¼š
 	Bash
 	C
 	C++
@@ -48,17 +48,17 @@ Supported Languge:
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Done.
 
-1.ÉÏ´«²å¼şÎÄ¼şµ½`wp-content/plugins/`Ä¿Â¼ÏÂ¡£
-2.ÔÚ²å¼şÒ³ÃæÆôÓÃ±¾²å¼ş¡£
-3.ÍêÊÂ
+1.ä¸Šä¼ æ’ä»¶æ–‡ä»¶åˆ°`wp-content/plugins/`ç›®å½•ä¸‹ã€‚
+2.åœ¨æ’ä»¶é¡µé¢å¯ç”¨æœ¬æ’ä»¶ã€‚
+3.å®Œäº‹
 
 == Screenshots ==
 
 1. Your code will be similar to this in you article.
 2. The textarea and button in your post page .
 
-1.´úÂë¸ßÁÁÑİÊ¾
-2.±à¼­Ò³ÃæµÄ´úÂëÊäÈë¿ò
+1.ä»£ç é«˜äº®æ¼”ç¤º
+2.ç¼–è¾‘é¡µé¢çš„ä»£ç è¾“å…¥æ¡†
 
 == Frequently Asked Questions ==
 
