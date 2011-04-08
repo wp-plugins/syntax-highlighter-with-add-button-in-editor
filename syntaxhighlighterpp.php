@@ -42,7 +42,7 @@ function codebox_init(){
 	echo '<div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">';
 	echo '<div class="handlediv" title="Click to toggle">';
 	echo '</div>';
-	echo '<h3 class="hndle"><span>代码高亮</span></h3>';
+	echo '<h3 class="hndle"><span>syntax highlighter</span></h3>';
 	echo '<div class="inside">';
 	?>
 	Language:
