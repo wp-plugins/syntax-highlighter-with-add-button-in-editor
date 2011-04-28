@@ -4,7 +4,7 @@ Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter
 Requires at least: 1.1.0
 Tested up to: 3.12
-Stable tag: 1.1.0
+Stable tag: 1.1
 
 You can add code with syntax highlighter easily when you are editing an article.
 方便的代码高亮插件。
