@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: syntax-highlighter-with-add-button-in-editor
+Plugin Name: 代码高亮编辑器增强插件
 Plugin URI: http://leo108.com/?p=587
 Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。 
-Version: 1.00
+Version: 1.10
 Author: leo108
 Author URI: http://leo108.com/
 */
@@ -39,12 +39,12 @@ function highlighter_header() {
 	<?php
 }
 function codebox_init(){
-	echo '<div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">';
-	echo '<div class="handlediv" title="Click to toggle">';
-	echo '</div>';
-	echo '<h3 class="hndle"><span>syntax highlighter</span></h3>';
-	echo '<div class="inside">';
 	?>
+	<div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">
+	<div class="handlediv" title="Click to toggle">
+	</div>
+	<h3 class="hndle"><span>代码高亮</span></h3>
+	<div class="inside">
 	Language:
 	<select id="language">
 	<option value="bash">Bash</option>
@@ -70,7 +70,7 @@ function codebox_init(){
 	<option value="xml">XML</option>
 </select>
 <br>
-Code:<br><textarea id="code" rows="8" cols="120"></textarea><br>
+Code:<br><textarea id="code" rows="8" cols="98%"></textarea><br>
 <input type="button" value="OK" onclick="javascript:settext();">
 
 <script>
@@ -80,15 +80,9 @@ function settext()
 	var lang=document.getElementById("language").value;
 	var code=document.getElementById("code").value;
 	str=str+lang;
-	str=str+'">'
-	str=str+filter(code)+"</pre>"
-	var oEditor = CKEDITOR.instances.content;
-	if ( oEditor.mode == 'wysiwyg' ) {
-		oEditor.insertHtml(str) ;
-	} else {
-		top.window.document.getElementById("content").focus(); 
-		document.selection.createRange().text=str; 
-	}
+	str=str+'">';
+	str=str+filter(code)+"</pre>";
+	send_to_editor(str);
 	document.getElementById("code").value="";
 }
 function filter (str) {
@@ -100,10 +94,38 @@ function filter (str) {
 	str = str.replace(/\|/g, '&brvbar;');
 	return str;
 }
+function send_to_editor(h) {
+	var ed;
+
+	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() ) {
+		ed.focus();
+		if ( tinymce.isIE )
+			ed.selection.moveToBookmark(tinymce.EditorManager.activeEditor.windowManager.bookmark);
+
+		if ( h.indexOf('[caption') === 0 ) {
+			if ( ed.plugins.wpeditimage )
+				h = ed.plugins.wpeditimage._do_shcode(h);
+		} else if ( h.indexOf('[gallery') === 0 ) {
+			if ( ed.plugins.wpgallery )
+				h = ed.plugins.wpgallery._do_gallery(h);
+		} else if ( h.indexOf('[embed') === 0 ) {
+			if ( ed.plugins.wordpress )
+				h = ed.plugins.wordpress._setEmbed(h);
+		}
+
+		ed.execCommand('mceInsertContent', false, h);
+
+	} else if ( typeof edInsertContent == 'function' ) {
+		edInsertContent(edCanvas, h);
+	} else {
+		jQuery( edCanvas ).val( jQuery( edCanvas ).val() + h );
+	}
+}
 </script>
+	
+	</div></div></div>
+	<script>document.getElementById("postdiv").appendChild(document.getElementById("codebox"));</script>
 	<?php
-	echo '</div></div></div>';
-	echo '<script>document.getElementById("postdiv").appendChild(document.getElementById("codebox"));</script>';
 }
 add_action('dbx_post_sidebar','codebox_init');
 add_action('wp_head','highlighter_header');
