@@ -25,7 +25,6 @@ function highlighter_header() {
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushJScript.js"></script>
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushPerl.js"></script>
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushPhp.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushPlain.js"></script>
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushPython.js"></script>
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushRuby.js"></script>
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushScala.js"></script>
@@ -39,12 +38,12 @@ function highlighter_header() {
 	<?php
 }
 function codebox_init(){
+	echo '<div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">';
+	echo '<div class="handlediv" title="Click to toggle">';
+	echo '</div>';
+	echo '<h3 class="hndle"><span>代码高亮</span></h3>';
+	echo '<div class="inside">';
 	?>
-	<div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">
-	<div class="handlediv" title="Click to toggle">
-	</div>
-	<h3 class="hndle"><span>代码高亮</span></h3>
-	<div class="inside">
 	Language:
 	<select id="language">
 	<option value="bash">Bash</option>
@@ -70,7 +69,7 @@ function codebox_init(){
 	<option value="xml">XML</option>
 </select>
 <br>
-Code:<br><textarea id="code" rows="8" cols="98%"></textarea><br>
+Code:<br><textarea id="code" rows="8" cols="70" style="width:97%;"></textarea><br>
 <input type="button" value="OK" onclick="javascript:settext();">
 
 <script>
@@ -80,52 +79,25 @@ function settext()
 	var lang=document.getElementById("language").value;
 	var code=document.getElementById("code").value;
 	str=str+lang;
-	str=str+'">';
-	str=str+filter(code)+"</pre>";
-	send_to_editor(str);
+	str=str+'">'
+	str=str+filter(code)+"</pre>"
+	var win = window.dialogArguments || opener || parent || top;
+	win.send_to_editor(str);
 	document.getElementById("code").value="";
 }
 function filter (str) {
 	str = str.replace(/&/g, '&amp;');
 	str = str.replace(/</g, '&lt;');
 	str = str.replace(/>/g, '&gt;');
-	str = str.replace(/'/g, '&acute;');
+	str = str.replace(/'/g, '&#39;');
 	str = str.replace(/"/g, '&quot;');
 	str = str.replace(/\|/g, '&brvbar;');
 	return str;
 }
-function send_to_editor(h) {
-	var ed;
-
-	if ( typeof tinyMCE != 'undefined' && ( ed = tinyMCE.activeEditor ) && !ed.isHidden() ) {
-		ed.focus();
-		if ( tinymce.isIE )
-			ed.selection.moveToBookmark(tinymce.EditorManager.activeEditor.windowManager.bookmark);
-
-		if ( h.indexOf('[caption') === 0 ) {
-			if ( ed.plugins.wpeditimage )
-				h = ed.plugins.wpeditimage._do_shcode(h);
-		} else if ( h.indexOf('[gallery') === 0 ) {
-			if ( ed.plugins.wpgallery )
-				h = ed.plugins.wpgallery._do_gallery(h);
-		} else if ( h.indexOf('[embed') === 0 ) {
-			if ( ed.plugins.wordpress )
-				h = ed.plugins.wordpress._setEmbed(h);
-		}
-
-		ed.execCommand('mceInsertContent', false, h);
-
-	} else if ( typeof edInsertContent == 'function' ) {
-		edInsertContent(edCanvas, h);
-	} else {
-		jQuery( edCanvas ).val( jQuery( edCanvas ).val() + h );
-	}
-}
 </script>
-	
-	</div></div></div>
-	<script>document.getElementById("postdiv").appendChild(document.getElementById("codebox"));</script>
 	<?php
+	echo '</div></div></div>';
+	echo '<script>document.getElementById("postdivrich").appendChild(document.getElementById("codebox"));</script>';
 }
 add_action('dbx_post_sidebar','codebox_init');
 add_action('wp_head','highlighter_header');

@@ -2,9 +2,9 @@
 Contributors: leo108
 Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter
-Requires at least: 1.1.0
-Tested up to: 3.12
-Stable tag: 1.1
+Requires at least: 3.3
+Tested up to: 3.3
+Stable tag: 2.0
 
 You can add code with syntax highlighter easily when you are editing an article.
 方便的代码高亮插件。
@@ -65,6 +65,8 @@ Supported Languge:
 [Leave your FAQ](http://leo108.com/?p=587)
 
 == Changelog == 
+ 
+2.0:Improve the compatibility to the new version of wordpress .
  
 1.1.0:Improve the compatibility to all editors.
  
