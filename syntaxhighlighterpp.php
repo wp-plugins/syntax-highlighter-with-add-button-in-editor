@@ -38,14 +38,13 @@ function highlighter_header() {
 	<?php
 }
 function codebox_init(){
-	echo '<div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">';
-	echo '<div class="handlediv" title="Click to toggle">';
-	echo '</div>';
-	echo '<h3 class="hndle"><span>代码高亮</span></h3>';
-	echo '<div class="inside">';
-	?>
-	Language:
-	<select id="language">
+?>
+<div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">
+<div class="handlediv" title="Click to toggle"></div>
+<h3 class="hndle"><span>syntax highlighter ++</span></h3>
+<div class="inside">
+Language:
+<select id="language">
 	<option value="bash">Bash</option>
 	<option value="c">C</option>
 	<option value="cpp">C++</option>
@@ -95,9 +94,9 @@ function filter (str) {
 	return str;
 }
 </script>
-	<?php
-	echo '</div></div></div>';
-	echo '<script>document.getElementById("postdivrich").appendChild(document.getElementById("codebox"));</script>';
+</div></div></div>
+<script>document.getElementById("postdivrich").appendChild(document.getElementById("codebox"));</script>
+<?php
 }
 add_action('dbx_post_sidebar','codebox_init');
 add_action('wp_head','highlighter_header');
