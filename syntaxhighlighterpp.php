@@ -3,7 +3,7 @@
 Plugin Name: syntax-highlighter++
 Plugin URI: http://leo108.com/?p=587
 Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。 
-Version: 2.0
+Version: 2.0.1
 Author: leo108
 Author URI: http://leo108.com/
 */
@@ -31,6 +31,7 @@ function highlighter_header() {
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushSql.js"></script>
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushVb.js"></script>
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushXml.js"></script>
+	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushOther.js"></script>
 	<script type="text/javascript">		
 		SyntaxHighlighter.config.clipboardSwf = '<?php echo $current_path; ?>scripts/clipboard.swf';
 		SyntaxHighlighter.all();
@@ -45,6 +46,7 @@ function codebox_init(){
 <div class="inside">
 Language:
 <select id="language">
+	<option value="other">Other</option>
 	<option value="bash">Bash</option>
 	<option value="c">C</option>
 	<option value="cpp">C++</option>
