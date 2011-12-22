@@ -80,8 +80,8 @@ function settext()
 	var lang=document.getElementById("language").value;
 	var code=document.getElementById("code").value;
 	str=str+lang;
-	str=str+'">'
-	str=str+filter(code)+"</pre>"
+	str=str+'">';
+	str=str+filter(code)+"</pre>";
 	var win = window.dialogArguments || opener || parent || top;
 	win.send_to_editor(str);
 	document.getElementById("code").value="";
