@@ -3,7 +3,7 @@
 Plugin Name: syntax-highlighter++
 Plugin URI: http://leo108.com/?p=587
 Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。 
-Version: 2.0.1
+Version: 2.0.2
 Author: leo108
 Author URI: http://leo108.com/
 */
@@ -80,8 +80,8 @@ function settext()
 	var lang=document.getElementById("language").value;
 	var code=document.getElementById("code").value;
 	str=str+lang;
-	str=str+'">'
-	str=str+filter(code)+"</pre>"
+	str=str+'">';
+	str=str+filter(code)+"</pre>";
 	var win = window.dialogArguments || opener || parent || top;
 	win.send_to_editor(str);
 	document.getElementById("code").value="";

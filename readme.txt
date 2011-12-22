@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: leo108
 Donate link: http://leo108.com/
-Tags: editor, syntax , highlighter , code
+Tags: editor, syntax , highlighter , code , syntax-highlight , syntax-highlighter , syntax-highlighter++
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 You can add code with syntax highlighter easily when you are editing an article.
 方便的代码高亮插件。
@@ -65,6 +65,8 @@ Supported Languge:
 [Leave your FAQ](http://leo108.com/?p=587)
 
 == Changelog == 
+
+2.0.2:Fix a bug .
 
 2.0.1:Add 'Other' type .
 
