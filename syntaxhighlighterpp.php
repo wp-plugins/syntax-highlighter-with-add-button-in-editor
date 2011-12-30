@@ -3,39 +3,27 @@
 Plugin Name: syntax-highlighter++
 Plugin URI: http://leo108.com/?p=587
 Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。 
-Version: 2.0.3
+Version: 2.1.0
 Author: leo108
 Author URI: http://leo108.com/
 */
 
-function highlighter_header() {
+function highlighter_footer() {
 	$current_path = get_option('siteurl') .'/wp-content/plugins/' . basename(dirname(__FILE__)) .'/';
 	?>
-	<link type="text/css" rel="stylesheet" href="<?php echo $current_path; ?>styles/shCore.css" />
-	<link type="text/css" rel="stylesheet" href="<?php echo $current_path; ?>styles/shThemeDefault.css" />
 	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shCore.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushBash.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushCpp.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushCSharp.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushCss.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushDelphi.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushDiff.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushGroovy.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushJava.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushJScript.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushPerl.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushPhp.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushPython.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushRuby.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushScala.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushSql.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushVb.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushXml.js"></script>
-	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shBrushOther.js"></script>
+	<script type="text/javascript" src="<?php echo $current_path; ?>scripts/shAll.js"></script>
 	<script type="text/javascript">		
 		SyntaxHighlighter.config.clipboardSwf = '<?php echo $current_path; ?>scripts/clipboard.swf';
 		SyntaxHighlighter.all();
 	</script>
+	<?php
+}
+function highlighter_head() {
+	$current_path = get_option('siteurl') .'/wp-content/plugins/' . basename(dirname(__FILE__)) .'/';
+	?>
+	<link type="text/css" rel="stylesheet" href="<?php echo $current_path; ?>styles/shCore.css" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $current_path; ?>styles/shThemeDefault.css" />
 	<?php
 }
 function codebox_init(){
@@ -101,5 +89,6 @@ function filter (str) {
 <?php
 }
 add_action('dbx_post_sidebar','codebox_init');
-add_action('wp_head','highlighter_header');
+add_action('wp_footer','highlighter_footer');
+add_action('wp_head','highlighter_head');
 ?>

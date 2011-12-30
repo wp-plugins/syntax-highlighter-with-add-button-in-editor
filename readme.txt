@@ -4,7 +4,7 @@ Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter , code , syntax-highlight , syntax-highlighter , syntax-highlighter++ , highlight
 Requires at least: 3.3
 Tested up to: 3.3
-Stable tag: 2.0.3
+Stable tag: 2.1.0
 
 You can add code with syntax highlighter easily when you are editing an article.
 方便的代码高亮插件。
@@ -57,6 +57,8 @@ Supported Languge:
 [Leave your FAQ](http://leo108.com/?p=587)
 
 == Changelog == 
+
+2.1.0:Compress css and js files to make it faster .
 
 2.0.3:Change the Core.css to make line auto-break , but still has some problem with firefox .
 
