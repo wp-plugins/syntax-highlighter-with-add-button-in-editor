@@ -2,7 +2,7 @@
 Contributors: leo108
 Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter , code , syntax-highlight , syntax-highlighter , syntax-highlighter++ , highlight
-Requires at least: 3.3
+Requires at least: 2.0
 Tested up to: 3.3
 Stable tag: 2.1.0
 
