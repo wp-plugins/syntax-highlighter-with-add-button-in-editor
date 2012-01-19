@@ -1,9 +1,9 @@
 <?php
 /*
-Plugin Name: syntax-highlighter++
-Plugin URI: http://leo108.com/?p=587
+Plugin Name: SyntaxHighlighter++
+Plugin URI: http://leo108.com/pid-1304.asp
 Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。 
-Version: 2.2.0
+Version: 2.3.0
 Author: leo108
 Author URI: http://leo108.com/
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -78,6 +78,7 @@ function highlighter_footer() {
     SyntaxHighlighter.defaults['tab-size'] = <?php echo $options['highlighter_tabsize'];?>;
     SyntaxHighlighter.defaults['toolbar'] = <?php echo $options['highlighter_toolbar'];?>;
     SyntaxHighlighter.config.tagName = "<?php echo $options['highlighter_tagName'];?>";
+	SyntaxHighlighter.config.clipboardSwf = '<?php echo $current_path; ?>scripts/clipboard.swf';
     SyntaxHighlighter.all();
     </script>
     <?php
@@ -86,7 +87,7 @@ function highlighter_head() {
     $options = get_option( 'highlighter_options' );
     $current_path = get_option('siteurl') .'/wp-content/plugins/' . basename(dirname(__FILE__)) .'/';
     ?>
-    <link type="text/css" rel="stylesheet" href="<?php echo $current_path."styles/shCore".$options['highlighter_style'].".css"; ?>" />
+	<link type="text/css" rel="stylesheet" href="<?php echo $current_path."styles/shCore".$options['highlighter_style'].".css"; ?>" />
     <?php
 }
 function codebox_init(){
@@ -201,9 +202,8 @@ $options = get_option( 'highlighter_options' );
     <select name="highlighter_options[highlighter_style]" id="highlighter_style" />
         <option value="Default" <?php if("Default"==$options['highlighter_style']) echo "selected='selected'"; ?>>Default</option>
         <option value="Django" <?php if("Django"==$options['highlighter_style']) echo "selected='selected'"; ?>>Django</option>
-        <option value="Eclipse" <?php if("Eclipse"==$options['highlighter_style']) echo "selected='selected'"; ?>>Eclipse</option>
         <option value="Emacs" <?php if("Emacs"==$options['highlighter_style']) echo "selected='selected'"; ?>>Emacs</option>
-        <option value="Fade" <?php if("Fade"==$options['highlighter_style']) echo "selected='selected'"; ?>>Fade</option>
+        <option value="FadeToGrey" <?php if("FadeToGrey"==$options['highlighter_style']) echo "selected='selected'"; ?>>FadeToGrey</option>
         <option value="Midnight" <?php if("Midnight"==$options['highlighter_style']) echo "selected='selected'"; ?>>Midnight</option>
         <option value="RDark" <?php if("RDark"==$options['highlighter_style']) echo "selected='selected'"; ?>>RDark</option>
     </select><br />

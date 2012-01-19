@@ -4,7 +4,7 @@ Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter , code , syntax-highlight , syntax-highlighter , syntax-highlighter++ , highlight
 Requires at least: 2.0
 Tested up to: 3.3.1
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 
 You can add code with syntax highlighter easily when you are editing an article.
 方便的代码高亮插件。
@@ -16,7 +16,6 @@ you just have to select the language , add code to the textarea and click the 'O
 your code highlighted in your atricle.
 这个插件不仅仅提供了代码高亮，还在编辑页面增加了一个代码框和一个按钮，你只要选择好你的代码语言，把代码贴入代码框，
 再点击一下OK按钮，你的带高亮的代码就会被插入到文章里去。
-
 
 Supported Languge:
 	Bash
@@ -51,12 +50,15 @@ Supported Languge:
 
 1. Your code will be similar to this in you article.
 2. The textarea and button in your post page .
+3. Settings .
 
 == Frequently Asked Questions ==
 
-[Leave your FAQ](http://leo108.com/?p=587)
+[Leave your FAQ](http://leo108.com/pid-1304.asp)
 
 == Changelog == 
+
+2.3.0:Roll back the SyntaxHighlighter core to version 2 , but preserve the AutoLoader.js to load .js file dynamically .
 
 2.2.0:Update SyntaxHighlighter to version 3.0.83 && add option page .
 
