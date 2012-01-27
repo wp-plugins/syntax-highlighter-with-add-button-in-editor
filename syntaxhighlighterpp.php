@@ -19,7 +19,6 @@ function highlighter_activate() {
     $options['highlighter_collapse'] = "false";
     $options['highlighter_firstline'] = 1;
     $options['highlighter_gutter'] = "true";
-    $options['highlighter_htmlscript'] = "false";
     $options['highlighter_smarttabs'] = "true";
     $options['highlighter_tabsize'] = 4;
     $options['highlighter_toolbar'] = "true";
@@ -72,7 +71,6 @@ function highlighter_footer() {
     SyntaxHighlighter.defaults['auto-links'] = <?php echo $options['highlighter_autolinks'];?>;
     SyntaxHighlighter.defaults['collapse'] = <?php echo $options['highlighter_collapse'];?>;
     SyntaxHighlighter.defaults['first-line'] = <?php echo $options['highlighter_firstline'];?>;
-    SyntaxHighlighter.defaults['html-script'] = <?php echo $options['highlighter_htmlscript'];?>;
     SyntaxHighlighter.defaults['gutter'] = <?php echo $options['highlighter_gutter'];?>;
     SyntaxHighlighter.defaults['smart-tabs'] = <?php echo $options['highlighter_smarttabs'];?>;
     SyntaxHighlighter.defaults['tab-size'] = <?php echo $options['highlighter_tabsize'];?>;
@@ -187,7 +185,6 @@ function highlighter_admin_init(){
     add_settings_field('collapse', __('collapse','sh'), 'highlighter_collapse', 'highlighter', 'highlighter_main');
     add_settings_field('firstline', __('firstline','sh'), 'highlighter_firstline', 'highlighter', 'highlighter_main');
     add_settings_field('gutter', __('gutter','sh'), 'highlighter_gutter', 'highlighter', 'highlighter_main');
-    add_settings_field('htmlscript', __('htmlscript','sh'), 'highlighter_htmlscript', 'highlighter', 'highlighter_main');
     add_settings_field('smarttabs', __('smarttabs','sh'), 'highlighter_smarttabs', 'highlighter', 'highlighter_main');
     add_settings_field('tabsize', __('tabsize','sh'), 'highlighter_tabsize', 'highlighter', 'highlighter_main');
     add_settings_field('toolbar', __('toolbar','sh'), 'highlighter_toolbar', 'highlighter', 'highlighter_main');
@@ -250,16 +247,6 @@ $options = get_option( 'highlighter_options' );
 <select name="highlighter_options[highlighter_gutter]" id="highlighter_gutter" />
     <option value="true" <?php if("true"==$options['highlighter_gutter']) echo "selected='selected'"; ?>>Yes</option>
     <option value="false" <?php if("false"==$options['highlighter_gutter']) echo "selected='selected'"; ?>>No</option>
-</select><br />
-<?php
-}
-function highlighter_htmlscript()
-{
-$options = get_option( 'highlighter_options' );
-?>
-<select name="highlighter_options[highlighter_htmlscript]" id="highlighter_htmlscript" />
-    <option value="true" <?php if("true"==$options['highlighter_htmlscript']) echo "selected='selected'"; ?>>Yes</option>
-    <option value="false" <?php if("false"==$options['highlighter_htmlscript']) echo "selected='selected'"; ?>>No</option>
 </select><br />
 <?php
 }
