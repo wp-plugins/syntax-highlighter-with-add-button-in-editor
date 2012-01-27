@@ -4,7 +4,7 @@ Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter , code , syntax-highlight , syntax-highlighter , syntax-highlighter++ , highlight
 Requires at least: 2.0
 Tested up to: 3.3.1
-Stable tag: 2.3.0
+Stable tag: 2.3.1
 
 You can add code with syntax highlighter easily when you are editing an article.
 方便的代码高亮插件。
@@ -58,6 +58,8 @@ Supported Languge:
 
 == Changelog == 
 
+2.3.1:Adjust some syntax .
+
 2.3.0:Roll back the SyntaxHighlighter core to version 2 , but preserve the AutoLoader.js to load .js file dynamically .
 
 2.2.0:Update SyntaxHighlighter to version 3.0.83 && add option page .
@@ -75,6 +77,12 @@ Supported Languge:
 1.1.0:Improve the compatibility to all editors.
  
 == Upgrade Notice == 
-  
-Nothing
 
+= 2.3.1 =
+Important ! Please Reactive This Plugin After Upgrade .
+
+= 2.3.0 =
+Important ! Please Reactive This Plugin After Upgrade .
+
+= 2.2.0 =
+Important ! Please Reactive This Plugin After Upgrade .
