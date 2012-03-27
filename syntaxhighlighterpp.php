@@ -3,7 +3,7 @@
 Plugin Name: SyntaxHighlighter++
 Plugin URI: http://leo108.com/pid-1304.asp
 Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。 
-Version: 2.3.1
+Version: 2.4.0
 Author: leo108
 Author URI: http://leo108.com/
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -68,14 +68,14 @@ function highlighter_footer() {
       'xml xhtml xslt html    @shBrushXml.js',
       'other                  @shBrushOther.js'
     ));
-    SyntaxHighlighter.defaults['auto-links'] = <?php echo $options['highlighter_autolinks'];?>;
-    SyntaxHighlighter.defaults['collapse'] = <?php echo $options['highlighter_collapse'];?>;
-    SyntaxHighlighter.defaults['first-line'] = <?php echo $options['highlighter_firstline'];?>;
-    SyntaxHighlighter.defaults['gutter'] = <?php echo $options['highlighter_gutter'];?>;
-    SyntaxHighlighter.defaults['smart-tabs'] = <?php echo $options['highlighter_smarttabs'];?>;
-    SyntaxHighlighter.defaults['tab-size'] = <?php echo $options['highlighter_tabsize'];?>;
-    SyntaxHighlighter.defaults['toolbar'] = <?php echo $options['highlighter_toolbar'];?>;
-    SyntaxHighlighter.config.tagName = "<?php echo $options['highlighter_tagName'];?>";
+    SyntaxHighlighter.defaults['auto-links'] = <?php echo $options['highlighter_autolinks']?$options['highlighter_autolinks']:'true';?>;
+    SyntaxHighlighter.defaults['collapse'] = <?php echo $options['highlighter_collapse']?$options['highlighter_collapse']:'false';?>;
+    SyntaxHighlighter.defaults['first-line'] = <?php echo $options['highlighter_firstline']?$options['highlighter_firstline']:'0';?>;
+    SyntaxHighlighter.defaults['gutter'] = <?php echo $options['highlighter_gutter']?$options['highlighter_gutter']:'true';?>;
+    SyntaxHighlighter.defaults['smart-tabs'] = <?php echo $options['highlighter_smarttabs']?$options['highlighter_smarttabs']:'true';?>;
+    SyntaxHighlighter.defaults['tab-size'] = <?php echo $options['highlighter_tabsize']?$options['highlighter_tabsize']:'4';?>;
+    SyntaxHighlighter.defaults['toolbar'] = <?php echo $options['highlighter_toolbar']?$options['highlighter_toolbar']:'true';?>;
+    SyntaxHighlighter.config.tagName = "<?php echo $options['highlighter_tagName']?$options['highlighter_tagName']:'pre';?>";
 	SyntaxHighlighter.config.clipboardSwf = '<?php echo $current_path; ?>scripts/clipboard.swf';
     SyntaxHighlighter.all();
     </script>
