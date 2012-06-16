@@ -89,6 +89,7 @@ function highlighter_head() {
     <?php
 }
 function codebox_init(){
+    $options = get_option( 'highlighter_options' );
 ?>
 <div id="codebox" class="meta-box-sortables ui-sortable" style="position: relative;"><div class="postbox">
 <div class="handlediv" title="Click to toggle"></div>
@@ -133,12 +134,12 @@ function codebox_init(){
 <script>
 function settext()
 { 
-    var str='<pre class="brush:';
+    var str='<<?php echo $options['highlighter_tagName']?$options['highlighter_tagName']:'pre';?> class="brush:';
     var lang=document.getElementById("language").value;
     var code=document.getElementById("code").value;
     str=str+lang;
     str=str+'">';
-    str=str+filter(code)+"</pre><p>&nbsp;</p>";
+    str=str+filter(code)+"</<?php echo $options['highlighter_tagName']?$options['highlighter_tagName']:'pre';?>><p>&nbsp;</p>";
     var win = window.dialogArguments || opener || parent || top;
     win.send_to_editor(str);
     document.getElementById("code").value="";
@@ -149,7 +150,7 @@ function filter (str) {
     str = str.replace(/>/g, '&gt;');
     str = str.replace(/'/g, '&#39;');
     str = str.replace(/"/g, '&quot;');
-    str = str.replace(/\|/g, '&brvbar;');
+//    str = str.replace(/\|/g, '&brvbar;');
     return str;
 }
 </script>
