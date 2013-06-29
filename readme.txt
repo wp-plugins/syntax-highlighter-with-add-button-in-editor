@@ -4,7 +4,7 @@ Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter , code , syntax-highlight , syntax-highlighter , syntax-highlighter++ , highlight
 Requires at least: 2.0
 Tested up to: 3.3.1
-Stable tag: 2.4.1
+Stable tag: 2.4.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -14,7 +14,7 @@ You can add code with syntax highlighter easily when you are editing an article.
 == Description ==
 
 This plugin not only provides you syntax-highlighter , but also add a textarea and a button in the post page .
-you just have to select the language , add code to the textarea and click the 'OK' button , and you will get 
+you just have to select the language , add code to the textarea and click the 'OK' button , and you will get
 your code highlighted in your atricle.
 这个插件不仅仅提供了代码高亮，还在编辑页面增加了一个代码框和一个按钮，你只要选择好你的代码语言，把代码贴入代码框，
 再点击一下OK按钮，你的带高亮的代码就会被插入到文章里去。
@@ -44,7 +44,7 @@ Supported Languge:
 
 == Installation ==
 
-1. Upload all files to your Wordpress plugins directory, usually `wp-content/plugins/` . 
+1. Upload all files to your Wordpress plugins directory, usually `wp-content/plugins/` .
 2. Activate the plugin through the 'Plugins' menu in WordPress.
 3. Done.
 
@@ -58,7 +58,9 @@ Supported Languge:
 
 [Leave your FAQ](http://leo108.com/pid-1304.asp)
 
-== Changelog == 
+== Changelog ==
+
+2.4.2: Add some editor support , thanks to huangzhiqun(http://huangzhiqun.com/).
 
 2.4.1: Fix the bug , when you change the tagName , it doesn't work.
 
@@ -79,10 +81,10 @@ Supported Languge:
 2.0.1:Add 'Other' type .
 
 2.0:Improve the compatibility to the new version of wordpress .
- 
+
 1.1.0:Improve the compatibility to all editors.
- 
-== Upgrade Notice == 
+
+== Upgrade Notice ==
 
 = 2.3.1 =
 Important ! Please Reactive This Plugin After Upgrade .

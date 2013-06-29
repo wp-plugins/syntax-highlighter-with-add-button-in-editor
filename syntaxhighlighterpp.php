@@ -2,8 +2,8 @@
 /*
 Plugin Name: SyntaxHighlighter++
 Plugin URI: http://leo108.com/pid-1304.asp
-Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。 
-Version: 2.4.1
+Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。
+Version: 2.4.2
 Author: leo108
 Author URI: http://leo108.com/
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -30,7 +30,7 @@ function highlighter_footer() {
     ?>
     <script type="text/javascript" src="<?php echo $current_path; ?>scripts/shCore.js"></script>
     <script type="text/javascript" src="<?php echo $current_path; ?>scripts/shAutoloader.js"></script>
-    <script type="text/javascript">        
+    <script type="text/javascript">
     function path()
     {
       var args = arguments,
@@ -133,7 +133,7 @@ function codebox_init(){
 
 <script>
 function settext()
-{ 
+{
     var str='<<?php echo $options['highlighter_tagName']?$options['highlighter_tagName']:'pre';?> class="brush:';
     var lang=document.getElementById("language").value;
     var code=document.getElementById("code").value;
@@ -141,7 +141,17 @@ function settext()
     str=str+'">';
     str=str+filter(code)+"</<?php echo $options['highlighter_tagName']?$options['highlighter_tagName']:'pre';?>><p>&nbsp;</p>";
     var win = window.dialogArguments || opener || parent || top;
-    win.send_to_editor(str);
+    if((typeof win.send_to_editor) != "undefined") {
+        win.send_to_editor(str);
+    } else if((typeof CKEDITOR.instances.content.insertHtml) != "undefined") {
+        CKEDITOR.instances.content.insertHtml(str);
+    } else if((typeof KindEditor.instances[0].insertHtml) != "undefined") {
+        KindEditor.instances[0].insertHtml(str);
+    } else if((typeof UE.instants.ueditorInstant0.execCommand) != "undefined") {
+        UE.instants.ueditorInstant0.execCommand("insertHtml",str);
+    } else {
+        alert("<?php echo __('This plugin can not insert code to your editor','sh'); ?>");
+    }
     document.getElementById("code").value="";
 }
 function filter (str) {
