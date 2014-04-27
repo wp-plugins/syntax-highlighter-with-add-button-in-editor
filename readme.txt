@@ -3,8 +3,8 @@ Contributors: leo108
 Donate link: http://leo108.com/
 Tags: editor, syntax , highlighter , code , syntax-highlight , syntax-highlighter , syntax-highlighter++ , highlight
 Requires at least: 2.0
-Tested up to: 3.3.1
-Stable tag: 2.4.2
+Tested up to: 3.8.0
+Stable tag: 2.5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -59,6 +59,8 @@ Supported Languge:
 [Leave your FAQ](http://leo108.com/pid-1304.asp)
 
 == Changelog ==
+
+2.5.0: Fix display problem in 'Media'->'edit'
 
 2.4.2: Add some editor support , thanks to huangzhiqun(http://huangzhiqun.com/).
 

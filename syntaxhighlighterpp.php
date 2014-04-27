@@ -3,7 +3,7 @@
 Plugin Name: SyntaxHighlighter++
 Plugin URI: http://leo108.com/pid-1304.asp
 Description: 支持Bash/shell, C#, C++, CSS, Delphi, Diff, Groovy, JavaScript, Java, Perl, PHP, Plain Text, Python, Ruby, Scala, SQL, Visual Basic and XML等语言，并在编辑器下方增加一个代码输入框，直接将相关代码贴入编辑器中。
-Version: 2.4.2
+Version: 2.5.0
 Author: leo108
 Author URI: http://leo108.com/
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
@@ -165,7 +165,15 @@ function filter (str) {
 }
 </script>
 </div></div></div>
-<script>document.getElementById("postdivrich").appendChild(document.getElementById("codebox"));</script>
+<script>
+    var dom = document.getElementById("postdivrich");
+    //bugfix, only display in article edit page
+    if(dom){
+        dom.appendChild(document.getElementById("codebox"));
+    }else{
+        document.getElementById("codebox").remove();
+    }
+</script>
 <?php
 }
 function highlighter_options_page() {
